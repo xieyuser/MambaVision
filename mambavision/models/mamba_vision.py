@@ -808,17 +808,19 @@ class MambaVision(nn.Module):
 
     def forward_features(self, x):
         x = self.patch_embed(x)
+        features = []
         for level in self.levels:
+            features += [x]
             x = level(x)
         x = self.norm(x)
         x = self.avgpool(x)
         x = torch.flatten(x, 1)
-        return x
+        return x, features
 
     def forward(self, x):
-        x = self.forward_features(x)
+        x, features = self.forward_features(x)
         x = self.head(x)
-        return x
+        return x, features
 
     def _load_state_dict(self, pretrained, strict: bool = False):
         _load_checkpoint(self, pretrained, strict=strict)
