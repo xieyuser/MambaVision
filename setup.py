@@ -16,7 +16,7 @@ setup(
     description='MambaVision: A Hybrid Mamba-Transformer Vision Backbone',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/NVlabs/MambaVision',
+    url='https://github.com/xieyuser/MambaVision.git',
     author='Ali Hatamizadeh',
     author_email='ahatamiz123@gmail.com',
     classifiers=[
@@ -37,7 +37,7 @@ setup(
     keywords='pytorch pretrained models mamba vision transformer vit',
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
-    install_requires=['torch >= 2.4.0', 'timm==1.0.14', 'mamba-ssm==2.2.5', 'causal-conv1d==1.6.0', 'einops'],
+    install_requires=['torch >= 2.0.0', 'timm>=0.9.0', 'mamba-ssm>=2.2.0', 'causal-conv1d>=1.4.0', 'einops'],
     license="NVIDIA Source Code License-NC",
     python_requires='>=3.9',
 )
